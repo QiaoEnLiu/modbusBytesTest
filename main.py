@@ -55,6 +55,7 @@ class ModbusRTU:
         :param message_with_crc: 已附加 CRC 的報文
         :return: 設備回應
         """
+        print(message_with_crc)
         self.ser.write(message_with_crc)
         response = self.ser.read(100)  # 根據回應長度調整大小
         return response
@@ -144,5 +145,5 @@ class ModbusRTU:
 
 # 創建 ModbusRTU 類的實例並處理用戶輸入
 modbus = ModbusRTU()
-input_data = input("請輸入參數 (十六進位樣式，例如: 0x01 0x03 0x00 0x00 0x00 0x02): ")
+input_data = input("請輸入參數 (十六進位樣式，例如: 0x01 0x03 0x00 0x00 0x00 0x02): ") or "0x01 0x03 0x00 0x00 0x00 0x02"
 modbus.process_input(input_data)
