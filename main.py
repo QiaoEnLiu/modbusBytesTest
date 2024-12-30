@@ -1,7 +1,7 @@
 import serial
 
 class ModbusRTU:
-    def __init__(self, port='COM12', baudrate=9600):
+    def __init__(self, port='COM12', baudrate=9600): # USB Serial Port
         # 初始化串口配置
         self.ser = serial.Serial(
             port=port,
